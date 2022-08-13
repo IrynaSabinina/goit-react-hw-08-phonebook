@@ -1,15 +1,25 @@
 import { Form } from './Form/Form';
 import { ContactsList } from './Contacts/ContactsList';
 import { FindElement } from './FindElement/FindElement';
+import { HomePage } from '../pages/HomePage/HomePage';
+import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { Layout } from 'Layout/Layout';
+import { MyContacts } from '../pages/MyContacts/MyContacts';
+import { FormAuth } from '../components/SectionAutorization/FormAuth';
+import { LoginPage } from '../pages/PageLogin/LoginPage';
+// import { GoHome } from '../components/GoHome/GoHome';
 
 export const App = () => {
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <Form />
-      <FindElement />
-      <ContactsList />
-    </div>
+    <Routes>
+      <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
+        <Route index element={<HomePage />}></Route>
+      </Route>
+      <Route path="/register" element={<FormAuth />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/contacts" element={<MyContacts />} />
+    </Routes>
   );
 };
 

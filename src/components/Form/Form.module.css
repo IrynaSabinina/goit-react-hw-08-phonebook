@@ -18,3 +18,16 @@
 .btnAdd:hover {
   transform: scale(1.3);
 }
+
+.formAuth {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  min-width: 600px;
+  padding: 25px;
+  text-align: center;
+}
+
+.btnAuth:hover {
+  transform: scale(1.3);
+}
