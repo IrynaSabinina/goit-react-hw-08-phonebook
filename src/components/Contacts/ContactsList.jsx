@@ -4,8 +4,10 @@ import { filterSelector, contactsSelector } from 'redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useEffect } from 'react';
-import { getContactsThunk } from '../../redux/thunks/thunks';
-import { deleteContactThunk } from '../../redux/thunks/thunks';
+import {
+  deleteContactThunk,
+  getContactsThunk,
+} from '../../redux/thunks/contatsThunks/thunks';
 
 // {
 //   contacts, contactDelete=deleteAction

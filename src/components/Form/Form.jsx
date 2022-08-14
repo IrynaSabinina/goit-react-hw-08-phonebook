@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContactThunk } from '../../redux/thunks/thunks';
+import { addContactThunk } from '../../redux/thunks/contatsThunks/thunks';
 import { contactsSelector } from '../../redux/selectors';
 
 export const Form = () => {

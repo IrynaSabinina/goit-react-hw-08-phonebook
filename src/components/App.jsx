@@ -8,18 +8,21 @@ import { Layout } from 'Layout/Layout';
 import { MyContacts } from '../pages/MyContacts/MyContacts';
 import { FormAuth } from '../components/SectionAutorization/FormAuth';
 import { LoginPage } from '../pages/PageLogin/LoginPage';
-// import { GoHome } from '../components/GoHome/GoHome';
+import { ToastContainer } from 'react-toastify';
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
-        <Route index element={<HomePage />}></Route>
-      </Route>
-      <Route path="/register" element={<FormAuth />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/contacts" element={<MyContacts />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
+          <Route index element={<HomePage />}></Route>
+        </Route>
+        <Route path="/register" element={<FormAuth />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contacts" element={<MyContacts />} />
+      </Routes>
+      <ToastContainer />
+    </>
   );
 };
 
