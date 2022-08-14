@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { loginThunk } from 'redux/login/loginThunks';
 import { useDispatch } from 'react-redux';
 import { loginUserFunc } from 'API/users-api';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 export const LoginPage = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: '',
@@ -27,7 +29,7 @@ export const LoginPage = () => {
     <>
       <form className={styles.form} onSubmit={handlLogin}>
         <label className={styles.inputIn}>
-          mail
+          Email
           <input
             type="email"
             name="email"
@@ -44,7 +46,13 @@ export const LoginPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <button className={styles.btnAdd} type="submit">
+        <button
+          state={location.state}
+          to={'/contacts'}
+          className={styles.btnAdd}
+          type="submit"
+        >
+          <Link state={location.state} to={'/contacts'}></Link>
           Log in
         </button>
       </form>

@@ -8,5 +8,5 @@ export const setAuthToken = token => {
 };
 
 export const deleteAuthToken = () => {
-  api.defaults.headers.Authorization = '';
+  delete api.defaults.headers.Authorization;
 };

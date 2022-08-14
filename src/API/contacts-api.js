@@ -6,7 +6,7 @@ export const fetchContacts = () => {
 };
 
 export const addContactFech = contact => {
-  const data = api.post('/contacts', { ...contact });
+  const data = api.post('/contacts', contact);
   return data;
 };
 

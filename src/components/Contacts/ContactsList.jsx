@@ -36,13 +36,13 @@ export const ContactsList = () => {
     <div className={styles.contacts}>
       <h2 className={styles.title}>Contacts</h2>
       <ul className={styles.list}>
-        {avaliableContacts.map(({ id, name, phone }) => {
+        {avaliableContacts.map(({ id, name, number }) => {
           return (
             <ContactItem
               key={id}
               id={id}
               name={name}
-              phone={phone}
+              number={number}
               contactDelete={handleDelete}
             />
           );

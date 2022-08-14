@@ -9,8 +9,14 @@ import { MyContacts } from '../pages/MyContacts/MyContacts';
 import { FormAuth } from '../components/SectionAutorization/FormAuth';
 import { LoginPage } from '../pages/PageLogin/LoginPage';
 import { ToastContainer } from 'react-toastify';
-
+import { GoHome } from './Navigation/Navigation';
+import { useDispatch } from 'react-redux';
+import { currentUserThunk } from 'redux/login/loginThunks';
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentUserThunk());
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -20,6 +26,7 @@ export const App = () => {
         <Route path="/register" element={<FormAuth />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/contacts" element={<MyContacts />} />
+        <Route path="*" element={<Layout />} />
       </Routes>
       <ToastContainer />
     </>

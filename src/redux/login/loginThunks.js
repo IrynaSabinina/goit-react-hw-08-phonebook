@@ -1,9 +1,37 @@
-import { loginUserFunc } from 'API/users-api';
-import { setAuthToken } from 'API/api';
+import {
+  loginUserFunc,
+  logoutUserFunc,
+  getCurrenttUserFunc,
+} from 'API/users-api';
+import { setAuthToken, deleteAuthToken } from 'API/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { tokenAuthSeletor } from 'redux/selectors';
 
 export const loginThunk = createAsyncThunk('auth/login', async payload => {
   const data = await loginUserFunc(payload);
   setAuthToken(data.token);
   return data;
 });
+
+export const logoutThunk = createAsyncThunk('auth/logout', async payload => {
+  const data = await logoutUserFunc(payload);
+  deleteAuthToken(data.token);
+  return data;
+});
+
+export const currentUserThunk = createAsyncThunk(
+  'auth/currentUser',
+  (_, { getState, rejectWithValue }) => {
+    const token = tokenAuthSeletor(getState());
+
+    if (token) {
+      try {
+        return getCurrenttUserFunc();
+      } catch (error) {
+        rejectWithValue(error);
+      }
+    }
+    rejectWithValue();
+  }
+);

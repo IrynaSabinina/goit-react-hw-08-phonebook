@@ -12,3 +12,14 @@ export const loginUserFunc = async body => {
 
   return data;
 };
+
+export const logoutUserFunc = async body => {
+  const { data } = await api.post('/users/logout', body);
+
+  return data;
+};
+export const getCurrenttUserFunc = async () => {
+  const { data } = await api.get('/users/current');
+  console.log(data);
+  return data;
+};
