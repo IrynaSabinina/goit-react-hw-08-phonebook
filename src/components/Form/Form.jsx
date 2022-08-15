@@ -6,7 +6,6 @@ import styles from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContactThunk } from '../../redux/thunks/contatsThunks/thunks';
 import { contactsSelector } from '../../redux/selectors';
-import { UserMenu } from 'components/UserMenu/UserMenu';
 
 export const FormEl = () => {
   const [name, setName] = useState('');
