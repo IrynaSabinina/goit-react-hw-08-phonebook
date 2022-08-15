@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loginInitialState } from './loginInitialState';
-import { loginThunk, logoutThunk, currentUserThunk } from './loginThunks';
+import {
+  loginThunk,
+  logoutThunk,
+  currentUserThunk,
+  createNewUserThunk,
+} from './loginThunks';
 import { STATUS } from 'constanse/status';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
@@ -9,6 +14,17 @@ export const authSlice = createSlice({
   name: 'login',
   initialState: loginInitialState,
   extraReducers: {
+    [createNewUserThunk.pending]: state => {
+      state.status = STATUS.Loading;
+    },
+    [createNewUserThunk.fulfilled]: (state, { payload }) => {
+      state.status = STATUS.Success;
+      state.token = payload.token;
+      state.user = payload.user;
+    },
+    [createNewUserThunk.rejected]: state => {
+      state.status = STATUS.Error;
+    },
     [loginThunk.pending]: state => {
       state.status = STATUS.Loading;
     },

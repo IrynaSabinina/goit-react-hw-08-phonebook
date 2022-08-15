@@ -2,6 +2,7 @@ import {
   loginUserFunc,
   logoutUserFunc,
   getCurrenttUserFunc,
+  createUserFunc,
 } from 'API/users-api';
 import { setAuthToken, deleteAuthToken } from 'API/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
@@ -35,5 +36,14 @@ export const currentUserThunk = createAsyncThunk(
       }
     }
     rejectWithValue();
+  }
+);
+
+export const createNewUserThunk = createAsyncThunk(
+  'auth/createUser',
+  async payload => {
+    const data = await createUserFunc(payload);
+    setAuthToken(data.token);
+    return data;
   }
 );

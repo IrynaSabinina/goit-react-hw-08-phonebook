@@ -6,4 +6,3 @@ export const PublicRoute = ({ children }) => {
   const token = useSelector(tokenAuthSeletor);
   return !token ? children : <Navigate to="/contacts" />;
 };
-// console.log("jkjkj")

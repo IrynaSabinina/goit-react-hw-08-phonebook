@@ -1,11 +1,12 @@
 import styles from '../Form/Form.module.css';
 import { GoHome } from 'components/Navigation/GoHome';
 import { useState } from 'react';
-import { createUserFunc } from 'API/users-api';
+import { createNewUserThunk } from 'redux/login/loginThunks';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useDispatch } from 'react-redux';
 
 export const FormAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +15,7 @@ export const FormAuth = () => {
     email: '',
     password: '',
   });
+  const dispatch = useDispatch();
 
   const handleInputChange = event => {
     const { value, name } = event.target;
@@ -23,7 +25,8 @@ export const FormAuth = () => {
   const handlSubmitNewUser = event => {
     event.preventDefault();
     setIsLoading(true);
-    createUserFunc(values)
+    dispatch(createNewUserThunk(values))
+      .unwrap()
       .then(() => {
         toast.success('Tnack you for registration');
       })
