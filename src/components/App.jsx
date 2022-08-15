@@ -1,15 +1,12 @@
-import { Form } from './Form/Form';
-import { ContactsList } from './Contacts/ContactsList';
-import { FindElement } from './FindElement/FindElement';
 import { HomePage } from '../pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Layout } from 'Layout/Layout';
 import { MyContacts } from '../pages/MyContacts/MyContacts';
 import { FormAuth } from '../components/SectionAutorization/FormAuth';
 import { LoginPage } from '../pages/PageLogin/LoginPage';
 import { ToastContainer } from 'react-toastify';
-import { GoHome } from './Navigation/Navigation';
+
 import { useDispatch } from 'react-redux';
 import { currentUserThunk } from 'redux/login/loginThunks';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
