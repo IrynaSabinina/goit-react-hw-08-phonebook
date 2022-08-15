@@ -4,6 +4,8 @@ import { tokenAuthSeletor } from 'redux/selectors';
 
 import Badge from 'react-bootstrap/Badge';
 
+import { Navigation } from 'components/Navigation/Navigation';
+
 export const HomePage = () => {
   const isAuth = useSelector(tokenAuthSeletor);
   return !isAuth ? (
@@ -17,6 +19,6 @@ export const HomePage = () => {
       </h1>
     </>
   ) : (
-    <></>
+    <Navigation />
   );
 };

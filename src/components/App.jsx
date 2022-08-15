@@ -1,5 +1,5 @@
 import { HomePage } from '../pages/HomePage/HomePage';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Layout } from 'Layout/Layout';
 import { MyContacts } from '../pages/MyContacts/MyContacts';
@@ -46,7 +46,7 @@ export const App = () => {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<Layout />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <ToastContainer />
     </>

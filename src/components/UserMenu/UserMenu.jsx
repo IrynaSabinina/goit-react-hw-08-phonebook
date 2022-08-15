@@ -5,7 +5,7 @@ import { logoutThunk } from 'redux/login/loginThunks';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { MyContacts } from 'pages/MyContacts/MyContacts';
 export const UserMenu = () => {
   const email = useSelector(userAuthSelector);
   const dispatch = useDispatch();

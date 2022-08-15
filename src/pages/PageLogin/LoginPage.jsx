@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import { toast } from 'react-toastify';
+import { Header } from 'components/Header/Header';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ export const LoginPage = () => {
 
   return (
     <>
+      <Header />
       <Form className={styles.LoginForm} onSubmit={handlLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>

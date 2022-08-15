@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
+import { Header } from 'components/Header/Header';
 
 export const FormAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +42,7 @@ export const FormAuth = () => {
 
   return (
     <>
+      <Header />
       <Form className={styles.form} onSubmit={handlSubmitNewUser}>
         <Form.Group className="mb-3" controlId="formBasic">
           <Form.Label>

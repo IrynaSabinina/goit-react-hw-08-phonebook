@@ -8,7 +8,6 @@ export const PrivateNavigation = () => {
 
   return (
     <>
-      <UserMenu />
       <nav>
         <Link to="/contacts" state={location}>
           My contats
