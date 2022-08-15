@@ -6,13 +6,13 @@ import { useSelector } from 'react-redux';
 import { STATUS } from '../../constanse/status';
 import { authStatusSelector } from 'redux/selectors';
 import { Header } from 'components/Header/Header';
-import { UserMenu } from 'components/UserMenu/UserMenu';
 
 export const MyContacts = () => {
   const status = useSelector(authStatusSelector);
 
   return (
-    <><Header/>
+    <>
+      <Header />
       <FormEl />
       <FindElement />
       {status === STATUS.Success && <ContactsList />}
