@@ -1,18 +1,21 @@
 import PropTypes from 'prop-types';
 import styles from './Contacts.module.css';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 
 export const ContactItem = ({ id, name, number, contactDelete }) => {
   return (
-    <li className={styles.item}>
+    <ListGroup.Item className={styles.item}>
       {name} : {number}
-      <button
+      <Button
+        variant="danger"
         className={styles.btnDel}
         type="button"
         onClick={() => contactDelete(id)}
       >
         Delete
-      </button>
-    </li>
+      </Button>
+    </ListGroup.Item>
   );
 };
 

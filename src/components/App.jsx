@@ -12,6 +12,8 @@ import { ToastContainer } from 'react-toastify';
 import { GoHome } from './Navigation/Navigation';
 import { useDispatch } from 'react-redux';
 import { currentUserThunk } from 'redux/login/loginThunks';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { PublicRoute } from './PrivateRoute/PublicRoute';
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,9 +25,30 @@ export const App = () => {
         <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
         </Route>
-        <Route path="/register" element={<FormAuth />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/contacts" element={<MyContacts />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <FormAuth />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <MyContacts />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<Layout />} />
       </Routes>
       <ToastContainer />

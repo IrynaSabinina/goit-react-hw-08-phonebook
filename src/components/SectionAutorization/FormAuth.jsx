@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { createUserFunc } from 'API/users-api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export const FormAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,41 +38,50 @@ export const FormAuth = () => {
 
   return (
     <>
-      <form className={styles.form} onSubmit={handlSubmitNewUser}>
-        <label className={styles.inputIn}>
-          Login
-          <input
-            type="text"
-            name="name"
-            value={values.name}
-            onChange={handleInputChange}
-            placeholder="enter your user name"
-          />
-        </label>
-        <label className={styles.inputIn}>
-          mail
-          <input
-            type="email"
-            name="email"
-            value={values.email}
-            onChange={handleInputChange}
-            placeholder="enter your email"
-          />
-        </label>
-        <label className={styles.inputIn}>
-          Pasword
-          <input
-            type="password"
-            name="password"
-            value={values.password}
-            onChange={handleInputChange}
-            placeholder="minimum 7 points"
-          />
-        </label>
-        <button className={styles.btnAdd} disabled={isLoading} type="submit">
-          {isLoading ? 'waiting piease' : 'Sing in'}
-        </button>
-      </form>
+      <Form className={styles.form} onSubmit={handlSubmitNewUser}>
+        <Form.Group className="mb-3" controlId="formBasic">
+          <Form.Label>
+            <Form.Text className="text-muted">Login</Form.Text>
+
+            <Form.Control
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={handleInputChange}
+              placeholder="enter your user name"
+            />
+          </Form.Label>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>
+            <Form.Text className="text-muted">Email</Form.Text>
+
+            <Form.Control
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={handleInputChange}
+              placeholder="enter your email"
+            />
+          </Form.Label>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>
+            <Form.Text className="text-muted">Pasword</Form.Text>
+
+            <Form.Control
+              type="password"
+              name="password"
+              value={values.password}
+              onChange={handleInputChange}
+              placeholder="Password minimum 7 points"
+            />
+          </Form.Label>
+          <Button variant="success" disabled={isLoading} type="submit">
+            {isLoading ? 'waiting piease' : 'Sing in'}
+          </Button>
+        </Form.Group>
+      </Form>
       <GoHome />
     </>
   );

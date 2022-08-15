@@ -26,7 +26,11 @@ export const authSlice = createSlice({
       state.user = payload.user;
     },
     [currentUserThunk.fulfilled]: (state, { payload }) => {
-      state.token = payload;
+      state.status = STATUS.Success;
+      state.user = payload;
+    },
+    [currentUserThunk.rejected]: state => {
+      state.status = STATUS.Error;
     },
   },
 });

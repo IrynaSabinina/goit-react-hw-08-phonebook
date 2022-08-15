@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import styles from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContactThunk } from '../../redux/thunks/contatsThunks/thunks';
 import { contactsSelector } from '../../redux/selectors';
 
-export const Form = () => {
+export const FormEl = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(contactsSelector);
@@ -48,10 +50,10 @@ export const Form = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <label className={styles.inputIn}>
-        Name
-        <input
+    <Form className={styles.form} onSubmit={handleSubmit}>
+      <Form.Label className={styles.inputIn}>
+        <Form.Text className="text-muted">Name</Form.Text>
+        <Form.Control
           type="text"
           name="name"
           value={name}
@@ -60,10 +62,10 @@ export const Form = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
-      <label className={styles.inputIn}>
-        Number
-        <input
+      </Form.Label>
+      <Form.Label className={styles.inputIn}>
+        <Form.Text className="text-muted">Number</Form.Text>
+        <Form.Control
           type="tel"
           name="number"
           value={number}
@@ -72,10 +74,10 @@ export const Form = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
-      <button className={styles.btnAdd} type="submit">
+      </Form.Label>
+      <Button variant="success" type="submit">
         Add contacts
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };

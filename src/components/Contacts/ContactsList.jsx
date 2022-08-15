@@ -1,5 +1,6 @@
 import { ContactItem } from './ContactItem';
 import styles from './Contacts.module.css';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { filterSelector, contactsSelector } from 'redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -35,7 +36,7 @@ export const ContactsList = () => {
   return (
     <div className={styles.contacts}>
       <h2 className={styles.title}>Contacts</h2>
-      <ul className={styles.list}>
+      <ListGroup variant="flush" className={styles.list}>
         {avaliableContacts.map(({ id, name, number }) => {
           return (
             <ContactItem
@@ -47,7 +48,7 @@ export const ContactsList = () => {
             />
           );
         })}
-      </ul>
+      </ListGroup>
     </div>
   );
 };

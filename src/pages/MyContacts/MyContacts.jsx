@@ -1,14 +1,20 @@
-import { Form } from '../../components/Form/Form';
+import { FormEl } from '../../components/Form/Form';
 import { FindElement } from '../../components/FindElement/FindElement';
 import { ContactsList } from '../../components/Contacts/ContactsList';
 import { GoHome } from '../../components/Navigation/GoHome';
+import { useSelector } from 'react-redux';
+import { STATUS } from '../../constanse/status';
+import { authStatusSelector } from 'redux/selectors';
 
 export const MyContacts = () => {
+  const status = useSelector(authStatusSelector);
+
   return (
     <>
-      <Form />
+      <FormEl />
       <FindElement />
-      <ContactsList />
+      {status === STATUS.Success && <ContactsList />}
+
       <GoHome />
     </>
   );

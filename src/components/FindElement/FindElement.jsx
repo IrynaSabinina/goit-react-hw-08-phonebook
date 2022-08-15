@@ -1,6 +1,8 @@
 import styles from './FindElement.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 
+import Form from 'react-bootstrap/Form';
+
 import { filter } from 'redux/reducers';
 
 export const FindElement = () => {
@@ -14,9 +16,9 @@ export const FindElement = () => {
 
   return (
     <div className={styles.findForm}>
-      <label className={styles.findForm}>
-        Find contacts by name
-        <input
+      <Form.Label className={styles.findForm}>
+        <Form.Text className="text-muted">Find contacts by name</Form.Text>
+        <Form.Control
           className={styles.inputFind}
           type="text"
           name="filter"
@@ -26,7 +28,7 @@ export const FindElement = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
+      </Form.Label>
     </div>
   );
 };

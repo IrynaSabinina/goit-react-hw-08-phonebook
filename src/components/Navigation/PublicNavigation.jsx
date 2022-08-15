@@ -1,13 +1,12 @@
 import { Link, List } from './Navigation.styled';
-import { useSelector } from 'react-redux';
-import { tokenAuthSeletor } from 'redux/selectors';
-import { useLocation } from 'react-router-dom';
+
+import Navbar from 'react-bootstrap/Navbar';
 
 export const PublicNavigation = () => {
   // const location = useLocation();
 
   return (
-    <nav>
+    <Navbar expand="lg" variant="light" bg="light">
       <List>
         <li>
           <Link to="/register">Sing in</Link>
@@ -16,6 +15,6 @@ export const PublicNavigation = () => {
           <Link to="/login">Login</Link>
         </li>
       </List>
-    </nav>
+    </Navbar>
   );
 };

@@ -27,6 +27,8 @@ export const currentUserThunk = createAsyncThunk(
 
     if (token) {
       try {
+        console.log(token);
+        setAuthToken(token);
         return getCurrenttUserFunc();
       } catch (error) {
         rejectWithValue(error);
